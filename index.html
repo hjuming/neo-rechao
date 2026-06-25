@@ -88,8 +88,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;700;900&amp;family=Noto+Sans+TC:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box}
-    body{margin:0;overflow-x:hidden;font-family:'Noto Sans TC',sans-serif}
+    html,body{width:100%;max-width:100%;overflow-x:hidden}
+    body{margin:0;font-family:'Noto Sans TC',sans-serif}
     html{scroll-behavior:smooth}
+    @supports (overflow:clip){
+      html,body{overflow-x:clip}
+    }
     a{text-decoration:none}
     a,button{touch-action:manipulation;-webkit-tap-highlight-color:rgba(232,83,32,.22)}
     a:focus-visible,button:focus-visible{outline:2px solid #FF7A00;outline-offset:4px}
@@ -118,8 +122,9 @@
     .nav-links{display:flex;gap:32px;align-items:center}
     @media(max-width:900px){
       .nav-toggle{display:flex}
-      .nav-links{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(20,10,4,.97);flex-direction:column;justify-content:center;align-items:center;gap:40px;z-index:1050;transform:translateX(100%);transition:transform .35s ease}
-      .nav-links.open{transform:translateX(0)}
+      #dc-root,#dc-root>.sc-host{width:100%!important;max-width:100%!important;overflow-x:hidden!important}
+      .nav-links{position:fixed;inset:0;width:100%;width:100dvw;max-width:100%;height:100vh;height:100dvh;overflow-y:auto;background:rgba(20,10,4,.97);flex-direction:column;justify-content:center;align-items:center;gap:40px;z-index:1050;opacity:0;visibility:hidden;pointer-events:none;overscroll-behavior:contain;transition:opacity .25s ease,visibility .25s ease}
+      .nav-links.open{opacity:1;visibility:visible;pointer-events:auto}
       .nav-links a{font-size:18px!important}
       #main-nav{padding:0 24px!important}
       #hero .iron-red{padding:40px 24px 32px!important}
@@ -143,7 +148,7 @@
       body{background:#EFE7D6}
       img{max-width:100%}
       section{min-height:auto!important}
-      [data-reveal]{transform:none!important}
+      [data-reveal]{opacity:1!important;transform:none!important;transition:none!important}
 
       #main-nav{height:56px!important;padding:0 18px!important;background:rgba(20,10,4,.96)!important;border-bottom:1px solid rgba(232,133,58,.18)!important}
       #main-nav>a{font-size:15px!important;letter-spacing:0!important}
@@ -291,6 +296,154 @@
       #tickets>div:nth-of-type(2)>div:nth-child(2),
       #tickets>div:nth-of-type(2)>div:nth-child(3){font-size:52px!important}
       #ugc>div>div>div:last-child>div:nth-child(2){grid-template-columns:1fr!important}
+    }
+
+    /* Mobile readability redesign: make the event page read like an information flow. */
+    @media(max-width:900px){
+      :root{
+        --mobile-cream-copy:#352315;
+        --mobile-cream-muted:#5B4433;
+        --mobile-dark-copy:rgba(255,248,236,.86);
+        --mobile-dark-muted:rgba(255,229,199,.72);
+        --mobile-accent:#FF8A32;
+      }
+      .bg-cream,.iron-cream{background-size:72px 72px!important}
+      .bg-ink,.iron-ink,.bg-neon,.iron-neon{background-size:72px 72px!important}
+
+      #hero>div:nth-of-type(1){padding:36px 20px 28px!important}
+      #hero>div:nth-of-type(1)>div:nth-child(2),
+      #hero>div:nth-of-type(1)>div:nth-child(3){font-size:clamp(54px,19vw,74px)!important;line-height:.92!important}
+      #hero>div:nth-of-type(3),
+      #about,
+      #rechao-culture>div:nth-child(2),
+      #festival>div:nth-of-type(3),
+      #lineup,
+      #mobile>div:nth-of-type(2),
+      #schedule,
+      #ugc,
+      #tickets,
+      footer{padding-left:20px!important;padding-right:20px!important}
+
+      #hero p,#about p,#rechao-culture p,#festival p,#mobile p,#ugc p,footer p{
+        font-size:16px!important;
+        line-height:1.85!important;
+        font-weight:400!important;
+        letter-spacing:0!important;
+        overflow-wrap:anywhere!important;
+      }
+      #hero p,#mobile p,#ugc p{color:var(--mobile-cream-copy)!important}
+      #about p,#rechao-culture p,#festival p,footer p{color:var(--mobile-dark-copy)!important}
+
+      #hero [style*="font:300 9px"],#hero [style*="font: 300 9px"],
+      #tickets [style*="font:300 9px"],#tickets [style*="font: 300 9px"],
+      #festival [style*="font:300 9px"],#festival [style*="font: 300 9px"],
+      #lineup [style*="font:400 9px"],#lineup [style*="font: 400 9px"],
+      #rechao-culture [style*="font:400 9px"],#rechao-culture [style*="font: 400 9px"]{
+        font-size:11px!important;
+        line-height:1.45!important;
+        letter-spacing:.12em!important;
+      }
+
+      #about [style*="font:300 11px"],#about [style*="font: 300 11px"],
+      #rechao-culture [style*="font:300 11px"],#rechao-culture [style*="font: 300 11px"],
+      #festival [style*="font:300 10px"],#festival [style*="font: 300 10px"],
+      #festival [style*="font:300 11px"],#festival [style*="font: 300 11px"],
+      #lineup [style*="font:300 9px"],#lineup [style*="font: 300 9px"],
+      #lineup [style*="font:300 10px"],#lineup [style*="font: 300 10px"],
+      #schedule [style*="font:300 10px"],#schedule [style*="font: 300 10px"],
+      #tickets [style*="font:300 10px"],#tickets [style*="font: 300 10px"],
+      footer [style*="font:300 10px"],footer [style*="font: 300 10px"],
+      footer [style*="font:300 12px"],footer [style*="font: 300 12px"]{
+        font-size:13px!important;
+        line-height:1.6!important;
+        font-weight:400!important;
+        letter-spacing:0!important;
+        color:var(--mobile-dark-muted)!important;
+      }
+
+      #hero [style*="font:300 10px"],#hero [style*="font: 300 10px"],
+      #mobile [style*="font:300 10px"],#mobile [style*="font: 300 10px"],
+      #mobile [style*="font:300 11px"],#mobile [style*="font: 300 11px"],
+      #ugc [style*="font:300 10px"],#ugc [style*="font: 300 10px"],
+      #ugc [style*="font:300 11px"],#ugc [style*="font: 300 11px"],
+      #ugc [style*="font:300 13px"],#ugc [style*="font: 300 13px"]{
+        font-size:14px!important;
+        line-height:1.65!important;
+        font-weight:400!important;
+        letter-spacing:0!important;
+        color:var(--mobile-cream-muted)!important;
+      }
+
+      #about>div>div:last-child{gap:22px!important}
+      #about>div>div:last-child>div{padding:20px 0!important}
+      #about>div>div:last-child [style*="font:900 40px"],
+      #about>div>div:last-child [style*="font: 900 40px"]{font-size:38px!important}
+
+      #festival [style*="background:rgba(255,122,0,.04)"],
+      #festival [style*="background: rgba(255, 122, 0, 0.04)"],
+      #festival [style*="background:rgba(255,122,0,.06)"],
+      #festival [style*="background: rgba(255, 122, 0, 0.06)"],
+      #festival [style*="border:1px solid rgba(255,122,0,.22)"],
+      #festival [style*="border: 1px solid rgba(255, 122, 0, 0.22)"]{
+        padding:16px!important;
+        background:rgba(255,122,0,.09)!important;
+      }
+      #festival [style*="font:700 12px"],#festival [style*="font: 700 12px"],
+      #mobile [style*="font:700 12px"],#mobile [style*="font: 700 12px"],
+      #schedule [style*="font:700 11px"],#schedule [style*="font: 700 11px"],
+      #lineup [style*="font:700 11px"],#lineup [style*="font: 700 11px"],
+      #lineup [style*="font:700 12px"],#lineup [style*="font: 700 12px"]{
+        font-size:14px!important;
+        line-height:1.35!important;
+        letter-spacing:0!important;
+      }
+      #lineup [style*="font:700 13px"],#lineup [style*="font: 700 13px"]{
+        font-size:15px!important;
+        line-height:1.35!important;
+      }
+
+      #mobile [style*="background:#1A1008;padding"],
+      #mobile [style*="background: rgb(26, 16, 8); padding"],
+      #mobile [style*="background:#B91C1C;padding"],
+      #mobile [style*="background: rgb(185, 28, 28); padding"],
+      #mobile [style*="background:#E85320;padding"],
+      #mobile [style*="background: rgb(232, 83, 32); padding"],
+      #mobile [style*="background:#EFE7D6;padding"],
+      #mobile [style*="background: rgb(239, 231, 214); padding"]{
+        padding:20px 18px!important;
+        gap:14px!important;
+      }
+      #mobile [style*="font:700 11px"],#mobile [style*="font: 700 11px"],
+      #ugc [style*="font:700 12px"],#ugc [style*="font: 700 12px"],
+      #tickets a{font-size:15px!important;line-height:1.25!important;letter-spacing:.04em!important}
+
+      #schedule>div>div:last-child>div{padding:24px 20px!important}
+      #schedule [style*="font:400 9px"],#schedule [style*="font: 400 9px"]{
+        font-size:12px!important;
+        line-height:1.4!important;
+        color:rgba(255,177,102,.78)!important;
+      }
+      #schedule [style*="font:900 24px"],#schedule [style*="font: 900 24px"]{font-size:28px!important}
+
+      #ugc>div>div>div:last-child>div:nth-child(2){grid-template-columns:1fr!important;gap:8px!important}
+      #ugc>div>div>div:last-child>div:nth-child(2)>div{aspect-ratio:4/3!important}
+      #ugc [style*="font:700 13px"],#ugc [style*="font: 700 13px"]{font-size:15px!important;line-height:1.25!important}
+
+      #tickets [style*="font:900 36px"],#tickets [style*="font: 900 36px"]{font-size:36px!important}
+      #tickets [style*="font:400 9px"],#tickets [style*="font: 400 9px"]{
+        font-size:12px!important;
+        line-height:1.35!important;
+        letter-spacing:.08em!important;
+        color:rgba(255,177,102,.82)!important;
+      }
+      #tickets [style*="font:300 9px"],#tickets [style*="font: 300 9px"]{
+        font-size:12px!important;
+        line-height:1.45!important;
+        color:rgba(255,248,236,.58)!important;
+        letter-spacing:.04em!important;
+      }
+
+      footer a,footer span{font-size:14px!important;line-height:1.5!important}
     }
   </style>
 </helmet>
