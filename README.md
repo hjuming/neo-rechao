@@ -1,35 +1,38 @@
-![Taiwan Gathering Movement](https://gathering.wedopr.com/uploads/neo-rechao-og.png)
+![Gather Taiwan](https://gather.wedopr.com/uploads/gather-platform-og-v2-natural.png)
 
-# Taiwan Gathering Movement
+# 聚場台灣 Gather Taiwan
 
-把台灣的聚會文化，變成可被參與、傳播與延伸的城市文化 IP。
+相招，聚一場。
+
+聚場台灣（Gather Taiwan）是一個 Culture Platform，致力於把台灣人的相聚文化，轉化為可被參與、傳承與分享的文化體驗。
 
 ## Site Structure
 
 | Route | Role |
 | --- | --- |
-| `/` | Taiwan Gathering Movement 母站首頁，說明 strategy / movement / theme architecture |
-| `/neo-rechao` | Theme 001 · Neo-Rechao 新熱炒運動，保留既有 Taipei Pilot / 熱炒主題招商焦點 |
-| `/moonlight-bbq` | Candidate Gathering Theme · 月光開烤，Mid-Autumn BBQ Gathering campaign draft |
+| `/` | Gather Taiwan 首頁，說明文化平台定位、相聚文化、Gatherings、Stories 與合作方向 |
+| `/neo-rechao` | Signature Gathering proposal page · 新熱炒運動 |
+| `/moonlight-bbq` | Season Gathering proposal page · 月光開烤 |
 
 ## Content Boundary
 
-本網站目前為策略概念與招商溝通用途。
+本網站目前為文化平台提案與合作溝通用途。
 
-- 不構成正式活動公告
-- 不提供票務資訊
-- 不列合作夥伴 logo
+- 不構成正式公告
+- 不提供報名
+- 不提供票務
+- 不提供活動行事曆
+- 不提供會員或付款功能
+- 不列未確認合作夥伴 logo
 - 不把潛在接觸對象寫成合作事實
-- 不使用活動型 JSON-LD
-- 12 個 Gathering Theme / Calendar 皆為未來策展方向或 concept module，不代表即將舉辦
+- 不使用活動型 structured data
+- 不寫成定案日期、場地、容量、陣容、合作或城市巡迴
 
 ## Canonical
 
-- Mother site: `https://gathering.wedopr.com/`
-- Theme 001: `https://gathering.wedopr.com/neo-rechao`
-- Moonlight BBQ draft: `https://gathering.wedopr.com/moonlight-bbq`
-
-舊網址 `neo-rechao.wedopr.com` 暫時保留，不做 root hard redirect，避免既有招商連結失效。
+- Home: `https://gather.wedopr.com/`
+- Signature Gathering: `https://gather.wedopr.com/neo-rechao`
+- Season Gathering: `https://gather.wedopr.com/moonlight-bbq`
 
 ## Redirects
 
@@ -39,9 +42,10 @@
 
 - Static HTML / CSS / JavaScript
 - Cloudflare Pages
-- JSON-LD uses `WebPage`
-- `uploads/` stores visual assets
+- Structured data uses safe platform / creative work types only
+- `uploads/` stores active public visual assets
+- High-misread-risk legacy assets should stay in Knowledge OS or a local non-public archive, not in the public website repo
 
-© 2026 Neo-Rechao 新熱炒運動.
+© 2026 Gather Taiwan.
 
 [WEDO International Marketing Group.](https://www.wedopr.com/) All rights reserved.
