@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>聚場台灣 Gather Taiwan｜讓相聚，成為文化</title>
-<meta name="description" content="聚場台灣 Gather Taiwan 是一個 Culture Platform，致力於把台灣人的相聚文化轉化為可被參與、傳承與分享的文化體驗。">
+<meta name="description" content="聚場台灣 Gather Taiwan 是一張台灣相聚文化的全年地圖，致力於把台灣人的相聚文化轉化為可被參與、傳承與分享的文化體驗。">
 <meta name="keywords" content="聚場台灣,Gather Taiwan,相招聚一場,台灣相聚文化,Culture Platform,新熱炒運動,月光開烤,文化平台,品牌共創">
 <meta name="author" content="WEDO International Marketing Group">
 <meta name="robots" content="index, follow">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="聚場台灣 Gather Taiwan">
 <meta property="og:title" content="聚場台灣 Gather Taiwan｜讓相聚，成為文化">
-<meta property="og:description" content="把台灣人的相聚文化，轉化為可被參與、傳承與分享的文化體驗。">
+<meta property="og:description" content="一張台灣相聚文化的全年地圖，把桌、人、地方與故事轉化為可被參與、傳承與分享的文化體驗。">
 <meta property="og:url" content="https://gather.wedopr.com/">
 <meta property="og:image" content="https://gather.wedopr.com/uploads/gather-platform-og-v2-natural.png">
 <meta property="og:image:width" content="1200">
@@ -30,7 +30,7 @@
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "聚場台灣 Gather Taiwan",
-  "description": "聚場台灣 Gather Taiwan 是一個 Culture Platform proposal，致力於把台灣人的相聚文化轉化為可被參與、傳承與分享的文化體驗。",
+  "description": "聚場台灣 Gather Taiwan 是一張台灣相聚文化的全年地圖，致力於把台灣人的相聚文化轉化為可被參與、傳承與分享的文化體驗。",
   "url": "https://gather.wedopr.com/",
   "image": "https://gather.wedopr.com/uploads/gather-platform-og-v2-natural.png",
   "about": [
@@ -120,6 +120,20 @@
   .node-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px}
   .node{background:var(--paper);padding:22px;min-height:118px}
   .node b{display:block;margin-bottom:8px;font-family:"Noto Serif TC",serif;font-size:20px;color:var(--brick)}
+  .map-intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:54px;align-items:end}
+  .season-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:34px}
+  .season-card{position:relative;overflow:hidden;min-height:252px;padding:24px;background:var(--paper);border:1px solid var(--line)}
+  .season-card::before{content:"";position:absolute;inset:auto 18px 18px auto;width:76px;height:76px;border:1px solid rgba(163,58,43,.22);border-radius:50%}
+  .season-card small{display:block;margin-bottom:14px;color:var(--brick);font-size:12px;font-weight:900}
+  .season-card b{display:block;max-width:240px;font-family:"Noto Serif TC",serif;font-size:28px;line-height:1.18}
+  .season-card p{position:relative;margin:18px 0 0}
+  .fit-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin-top:34px;background:var(--line);border:1px solid var(--line)}
+  .fit-card{background:var(--paper);padding:24px;min-height:180px}
+  .fit-card span{display:block;margin-bottom:12px;color:var(--brass);font-size:12px;font-weight:900}
+  .fit-card b{display:block;margin-bottom:10px;font-family:"Noto Serif TC",serif;font-size:22px}
+  .place-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;margin-top:34px;background:var(--line-dark);border:1px solid var(--line-dark)}
+  .place-card{background:rgba(251,246,234,.05);padding:24px;min-height:188px}
+  .place-card b{display:block;margin-bottom:12px;color:var(--brass);font-family:"Noto Serif TC",serif;font-size:22px}
   .dark{background:var(--green);color:var(--paper)}
   .dark .section-title,.dark .lead{color:var(--paper)}
   .dark .quiet{color:rgba(251,246,234,.7)}
@@ -173,7 +187,7 @@
     .hero-media{min-height:320px}
     .belief .wrap{display:block}
     .belief strong{display:block;margin-bottom:10px;font-size:23px}
-    .node-grid,.how-grid,.partner-grid,.story-grid,.gathering-grid{grid-template-columns:1fr}
+    .node-grid,.how-grid,.partner-grid,.story-grid,.gathering-grid,.season-grid,.fit-grid,.place-row,.map-intro{grid-template-columns:1fr}
     .gathering-card{grid-template-columns:1fr}
     .gathering-card img{height:240px}
     .email-prototype{display:grid;grid-template-columns:1fr}
@@ -195,7 +209,7 @@
     <button class="nav-toggle" type="button" aria-label="開啟選單" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
       <a href="#what">What</a>
-      <a href="#why">Why</a>
+      <a href="#map">Map</a>
       <a href="#gatherings">Gatherings</a>
       <a href="#stories">Stories</a>
       <a href="#join">Stay Connected</a>
@@ -210,9 +224,9 @@
         <div class="hero-kicker">Culture Platform Proposal</div>
         <h1>聚場台灣<br><span style="font-size:.58em">Gather Taiwan</span></h1>
         <p class="tagline">相招，聚一場。</p>
-        <p class="hero-text">我們相信，台灣最動人的文化，常常發生在一張桌邊、一盞燈下、一次「相招」之後。</p>
+        <p class="hero-text">一張台灣相聚文化的全年地圖。從早餐店、夜市、港邊、老街、河濱到辦桌，把早已存在的人情味，轉化為可以參與、共創與分享的文化體驗。</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#gatherings">查看提案方向</a>
+          <a class="btn btn-primary" href="#map">探索全年聚場</a>
           <a class="btn btn-ghost" style="color:var(--paper);border-color:var(--line-dark);background:transparent" href="#what">了解 Gather Taiwan</a>
         </div>
       </div>
@@ -237,11 +251,55 @@
     <div class="wrap split">
       <div>
         <div class="eyebrow">What is Gather Taiwan</div>
-        <h2 class="section-title">把一桌人的情感，<br>變成可分享的文化體驗。</h2>
+        <h2 class="section-title">把一桌人的情感，<br>轉化為文化平台。</h2>
       </div>
       <div class="story-copy">
-        <p class="lead">聚場台灣把台灣人的相聚方式重新整理、重新詮釋、重新留下來。</p>
-        <p class="quiet">從辦桌到熱炒，從中秋烤肉到城市夜晚，我們想把生活裡早已存在的熱情、款待與人情味，轉化成品牌、地方與創作者都能一起參與的文化提案。</p>
+        <p class="lead">聚場台灣是一個 Culture Platform，致力於把台灣人的相聚文化，轉化為可被參與、傳承與分享的文化體驗。</p>
+        <p class="quiet">我們不是從零創造文化，而是把生活裡早已存在的熱情、款待與人情味整理出來：讓品牌、地方、創作者、店家與參與者，都能在同一張桌上找到自己的角色。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="map" class="section" style="background:var(--paper)">
+    <div class="wrap">
+      <div class="map-intro">
+        <div>
+          <div class="eyebrow">12 Months, Many Ways to Gather</div>
+          <h2 class="section-title">一年十二個月，<br>台灣都有相聚的理由。</h2>
+        </div>
+        <p class="lead">首頁不急著把所有可能性一次說完。我們先選出幾個最有記憶點的入口，讓人看見 Gather Taiwan 可以從節氣、城市、餐桌與地方故事慢慢長大。</p>
+      </div>
+      <div class="season-grid" aria-label="聚場台灣全年相聚入口">
+        <article class="season-card">
+          <small>Spring / 春</small>
+          <b>市場早餐、春茶席、潤餅桌</b>
+          <p class="quiet">從清晨市場到老屋茶席，春天的聚場先從一份熱早餐和一杯茶開始。</p>
+        </article>
+        <article class="season-card">
+          <small>Early Summer / 初夏</small>
+          <b>端午粽子、芒果冰、港邊海鮮</b>
+          <p class="quiet">節令食物、夜市燈光與海風，讓城市在入夏時有了新的餐桌路線。</p>
+        </article>
+        <article class="season-card">
+          <small>Moon Season / 中秋</small>
+          <b>月光開烤、柚子月餅、河濱晚風</b>
+          <p class="quiet">把最熟悉的中秋烤肉，整理成城市夜晚可以共同想像的 Season Gathering。</p>
+        </article>
+        <article class="season-card">
+          <small>City Night / 城市夜晚</small>
+          <b>父親節熱炒、夜市小吃、老街糕餅</b>
+          <p class="quiet">熱炒桌、廟口、商圈與老街，是台灣城市最自然的社交語言。</p>
+        </article>
+        <article class="season-card">
+          <small>Winter / 冬</small>
+          <b>羊肉爐、薑母鴨、冬至湯圓</b>
+          <p class="quiet">冬天的聚場有蒸氣、熱湯、甜湯與一群人把時間慢下來的聲音。</p>
+        </article>
+        <article class="season-card">
+          <small>City Pilots / 城市聚場</small>
+          <b>台南早餐、基隆港邊、鹿港茶點</b>
+          <p class="quiet">每一座城市都有自己的 Taiwan Flavor；Gather Taiwan 要做的是找到它、留下它、放大它。</p>
+        </article>
       </div>
     </div>
   </section>
@@ -275,11 +333,44 @@
     </div>
   </section>
 
+  <section id="food-fit" class="section">
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow">Food Fit</div>
+        <h2 class="section-title">最適合聚場的食物，<br>不一定最高級。</h2>
+      </div>
+      <div>
+        <p class="lead">它要讓人自然坐下、分食、聊天、停留，最後留下某種氣味與記憶。</p>
+        <div class="fit-grid" aria-label="Gather Taiwan 食物選擇原則">
+          <div class="fit-card"><span>01</span><b>多人共享</b><p class="quiet">一鍋、一桌、一盤，讓人有理由伸手、等待、互相招呼。</p></div>
+          <div class="fit-card"><span>02</span><b>地方性</b><p class="quiet">食物最好能說出一個城市、一條街、一個市場的生活脈絡。</p></div>
+          <div class="fit-card"><span>03</span><b>停留時間</b><p class="quiet">不是快速打卡，而是讓人願意坐久一點、聊久一點。</p></div>
+          <div class="fit-card"><span>04</span><b>故事與氣味</b><p class="quiet">炭香、鍋氣、蒸氣、甜湯，都是台灣人記得一場相聚的方式。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="places" class="section dark">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--brass)">Where Gathering Begins</div>
+      <h2 class="section-title">聚場可以從一張桌，<br>也可以從一座城市開始。</h2>
+      <p class="lead">我們會從真實地方出發，但不把首頁做成場地清單。這裡只留下幾種最能展開故事的場域語言。</p>
+      <div class="place-row" aria-label="Gather Taiwan 場域語言">
+        <div class="place-card"><b>市場</b><p class="quiet">城市醒來的地方。早餐、熟食、採買與攤商的招呼聲。</p></div>
+        <div class="place-card"><b>港邊</b><p class="quiet">海風與魚市的晚餐。冰塊、魚籃、港燈與海鮮桌。</p></div>
+        <div class="place-card"><b>河濱</b><p class="quiet">月光與朋友的長桌。適合季節相聚與城市夜晚。</p></div>
+        <div class="place-card"><b>老街</b><p class="quiet">不是背景，而是店家、居民、糕餅與回家的路。</p></div>
+        <div class="place-card"><b>文化園區</b><p class="quiet">讓故事、音樂、影像與品牌共創有被整理的空間。</p></div>
+      </div>
+    </div>
+  </section>
+
   <section id="gatherings" class="section">
     <div class="wrap">
       <div class="eyebrow">Current Proposals</div>
       <h2 class="section-title">正在成形的兩個<br>Gathering proposal</h2>
-      <p class="lead">一個從熱炒桌走向旗艦聚場，一個從中秋烤肉走向季節相聚。兩個方向，都從台灣人熟悉的生活儀式開始。</p>
+      <p class="lead">第一階段先從兩個清楚、可被想像的入口開始。更多城市與主題會留給後續 Stories、城市聚場與合作提案慢慢展開。</p>
       <div class="gathering-grid">
         <article class="gathering-card">
           <img src="uploads/beernight1920-min.jpg" width="1803" height="871" loading="lazy" decoding="async" alt="熱炒桌與城市夜晚概念視覺">
@@ -311,19 +402,19 @@
     <div class="wrap">
       <div class="eyebrow">Stories</div>
       <h2 class="section-title">留下來的，<br>不只是資訊。</h2>
-      <p class="lead">Gather Taiwan 累積的是文化記憶。Phase 1 先以 editorial placeholder 呈現未來可能的故事方向。</p>
+      <p class="lead">Gather Taiwan 累積的是文化記憶，不是一次性的活動資訊。故事會慢慢成為這個平台最重要的資產。</p>
       <div class="story-grid">
         <article class="story-card">
           <img src="uploads/梅鑫海產店.jpg" width="1000" height="526" loading="lazy" decoding="async" alt="辦桌與熱炒記憶的故事視覺示意">
-          <div><b>第一次一起辦桌</b><p class="quiet">Memory / table。示意圖</p></div>
+          <div><b>島嶼早餐</b><p class="quiet">市場、早餐店、飯糰、蛋餅與一座城市醒來的聲音。示意圖</p></div>
         </article>
         <article class="story-card">
           <img src="uploads/磨石子地板.jpg" width="387" height="516" loading="lazy" decoding="async" alt="阿嬤的熱炒記憶故事視覺示意">
-          <div><b>阿嬤的熱炒記憶</b><p class="quiet">Memory / food。味道、材質與燈光，如何變成一代人的共同記憶。</p></div>
+          <div><b>冬天的鍋</b><p class="quiet">羊肉爐、薑母鴨、火鍋與湯圓，讓人把一年收束在同一張桌邊。</p></div>
         </article>
         <article class="story-card">
           <img src="uploads/moonlight-bbq-section-formula.png" width="1536" height="1024" loading="lazy" decoding="async" alt="中秋相聚故事視覺示意">
-          <div><b>我們在中秋聚一場</b><p class="quiet">Memory / season。月光與炭香，讓一年一度的相招被重新看見。</p></div>
+          <div><b>港邊晚餐</b><p class="quiet">基隆、旗津、安平或台東海線，都有自己的海風與餐桌故事。</p></div>
         </article>
       </div>
     </div>
@@ -333,12 +424,12 @@
     <div class="wrap">
       <div class="eyebrow" style="color:var(--brass)">Partnership Ecosystem</div>
       <h2 class="section-title">我們尋找的不是 Sponsor，<br>而是 Co-Creators。</h2>
-      <p class="lead">Gather Taiwan 希望與地方品牌、創作者、音樂人、店家、文化組織、媒體與社群，一起完成可被參與、傳承與分享的文化體驗。</p>
+      <p class="lead">Gather Taiwan 希望與地方品牌、創作者、音樂人、店家、場地方、文化組織、媒體與社群，一起完成可被參與、傳承與分享的文化體驗。</p>
       <div class="partner-grid">
-        <div class="partner"><b>地方品牌</b><p class="quiet">以真實地方脈絡進入文化體驗。</p></div>
-        <div class="partner"><b>地方創作者</b><p class="quiet">把記憶、路線與人物轉成內容。</p></div>
-        <div class="partner"><b>音樂人</b><p class="quiet">以聲音氛圍陪伴相聚，而不是成為舞台焦點。</p></div>
-        <div class="partner"><b>店家 / 文化組織</b><p class="quiet">共同整理地方生活裡已存在的文化。</p></div>
+        <div class="partner"><b>店家與場地方</b><p class="quiet">提供真實地方、真實桌面與真實生活脈絡。</p></div>
+        <div class="partner"><b>食材與循環夥伴</b><p class="quiet">讓一場聚會從好吃、乾淨、可執行開始。</p></div>
+        <div class="partner"><b>音樂人與攝影師</b><p class="quiet">捕捉聲音、光線與最有感情的一瞬間。</p></div>
+        <div class="partner"><b>故事採集者</b><p class="quiet">把地方人物、記憶與餐桌故事留下來。</p></div>
       </div>
       <p class="quiet" style="margin-top:22px">合作類別為方向提案，適合先討論文化角色、內容共創與品牌參與方式。</p>
     </div>
