@@ -1,4 +1,4 @@
-# Cloudflare Pages custom headers for Taiwan Gathering Movement
+# Cloudflare Pages custom headers for Gather Taiwan
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
@@ -7,6 +7,7 @@
 
 /uploads/*
   Cache-Control: public, max-age=31536000, immutable
+  X-Robots-Tag: all
 
 /*.js
   Cache-Control: public, max-age=86400

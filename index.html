@@ -7,7 +7,12 @@
 <meta name="description" content="聚場台灣 Gather Taiwan 是一張台灣相聚文化的全年地圖，致力於把台灣人的相聚文化轉化為可被參與、傳承與分享的文化體驗。">
 <meta name="keywords" content="聚場台灣,Gather Taiwan,相招聚一場,台灣相聚文化,Culture Platform,新熱炒運動,月光開烤,文化平台,品牌共創">
 <meta name="author" content="WEDO International Marketing Group">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#fbf6ea">
+<meta name="application-name" content="Gather Taiwan">
+<meta name="apple-mobile-web-app-title" content="聚場台灣">
+<meta name="geo.region" content="TW">
+<meta name="geo.placename" content="Taiwan">
 <link rel="canonical" href="https://gather.wedopr.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="聚場台灣 Gather Taiwan">
@@ -15,6 +20,8 @@
 <meta property="og:description" content="一張台灣相聚文化的全年地圖，把桌、人、地方與故事轉化為可被參與、傳承與分享的文化體驗。">
 <meta property="og:url" content="https://gather.wedopr.com/">
 <meta property="og:image" content="https://gather.wedopr.com/uploads/gather-platform-og-v2-natural.png">
+<meta property="og:image:secure_url" content="https://gather.wedopr.com/uploads/gather-platform-og-v2-natural.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="聚場台灣 Gather Taiwan 桌與人圍成的相聚意象">
@@ -32,6 +39,8 @@
   "name": "聚場台灣 Gather Taiwan",
   "description": "聚場台灣 Gather Taiwan 是一張台灣相聚文化的全年地圖，致力於把台灣人的相聚文化轉化為可被參與、傳承與分享的文化體驗。",
   "url": "https://gather.wedopr.com/",
+  "inLanguage": "zh-Hant-TW",
+  "primaryImageOfPage": "https://gather.wedopr.com/uploads/gather-platform-og-v2-natural.png",
   "image": "https://gather.wedopr.com/uploads/gather-platform-og-v2-natural.png",
   "about": [
     "台灣相聚文化",
@@ -40,6 +49,14 @@
     "Season Gathering",
     "Stories"
   ],
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "聚場台灣目前聚場入口",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"新熱炒運動 Neo-Rechao","url":"https://gather.wedopr.com/neo-rechao"},
+      {"@type":"ListItem","position":2,"name":"月光開烤 Mid-Autumn BBQ","url":"https://gather.wedopr.com/moonlight-bbq"}
+    ]
+  },
   "hasPart": [
     {
       "@type": "CreativeWork",
@@ -89,6 +106,13 @@
   .nav-links a:last-child{padding:10px 14px;border:1px solid var(--line);color:var(--ink);background:rgba(255,250,240,.72)}
   .nav-toggle{display:none;width:42px;height:42px;border:0;background:transparent;padding:8px}
   .nav-toggle span{display:block;height:2px;margin:6px 0;background:var(--ink)}
+  .nav-links a.home-link{display:none}
+  .drawer-note{display:none}
+  .route-ribbon{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}
+  .route-ribbon-track{display:flex;width:max-content;animation:ribbonMove 28s linear infinite}
+  .route-ribbon span{display:inline-flex;align-items:center;padding:13px 28px;font-size:13px;font-weight:900;color:var(--brick);white-space:nowrap}
+  @keyframes ribbonMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion: reduce){.route-ribbon-track{animation:none;flex-wrap:wrap}}
   .eyebrow{font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--brick)}
   .section{padding:92px 0}
   .section-title{margin:14px 0 0;font-family:"Noto Serif TC",serif;font-size:clamp(38px,5vw,72px);line-height:1.06;letter-spacing:0}
@@ -159,9 +183,7 @@
   .join .section-title{color:var(--paper)}
   .join .lead{margin-left:auto;margin-right:auto;color:rgba(251,246,234,.78)}
   .email-prototype{display:flex;gap:10px;justify-content:center;max-width:560px;margin:30px auto 0}
-  .email-prototype input{flex:1;min-height:48px;border:1px solid rgba(251,246,234,.4);background:rgba(251,246,234,.12);padding:0 16px;color:var(--paper);font:inherit}
-  .email-prototype input::placeholder{color:rgba(251,246,234,.62)}
-  .email-prototype button{cursor:default}
+  .email-prototype .btn{min-width:168px}
   .faq-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:54px}
   .faq-list{border-top:1px solid var(--line)}
   .faq-item{padding:22px 0;border-bottom:1px solid var(--line)}
@@ -174,9 +196,11 @@
     .wrap{width:min(100% - 36px,640px)}
     .section{padding:66px 0}
     .nav-toggle{display:block}
-    .nav-links{position:fixed;inset:68px 0 0;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;padding:24px;background:rgba(251,246,234,.98);opacity:0;visibility:hidden;pointer-events:none;transition:.18s}
+    .nav-links{position:fixed;inset:68px 0 0;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;padding:24px 28px;background:var(--rice);box-shadow:0 24px 80px rgba(27,23,18,.22);opacity:0;visibility:hidden;pointer-events:none;transition:.18s}
     .nav-links.open{opacity:1;visibility:visible;pointer-events:auto}
-    .nav-links a{padding:18px 0;border-bottom:1px solid var(--line);font-size:16px}
+    .nav-links a{padding:18px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--ink)}
+    .nav-links a.home-link{display:block}
+    .drawer-note{display:block;margin-top:18px;font-size:13px;line-height:1.7;color:var(--muted)}
     .hero-grid,.split,.faq-grid{grid-template-columns:1fr;gap:34px;min-height:auto}
     .hero-grid{padding:46px 0 48px}
     h1{font-size:clamp(46px,15vw,68px)}
@@ -208,11 +232,13 @@
     <a class="brand" href="#hero">聚場台灣<span>Gather Taiwan</span></a>
     <button class="nav-toggle" type="button" aria-label="開啟選單" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
-      <a href="#what">What</a>
-      <a href="#map">Map</a>
-      <a href="#gatherings">Gatherings</a>
-      <a href="#stories">Stories</a>
-      <a href="#join">Stay Connected</a>
+      <a href="#what">聚場台灣</a>
+      <a href="#map">全年地圖</a>
+      <a href="#gatherings">聚場入口</a>
+      <a href="#food-fit">美食文化</a>
+      <a href="#partnership">伙伴招募</a>
+      <a href="#join">第一批消息</a>
+      <p class="drawer-note">從首頁進入全年聚場，再走向美食文化、伙伴招募與正在成形的主題頁。</p>
     </div>
   </div>
 </nav>
@@ -239,6 +265,13 @@
       </figure>
     </div>
   </section>
+
+    <div class="route-ribbon" aria-label="聚場台灣主題路徑">
+    <div class="route-ribbon-track">
+      <span>市場早餐</span><span>春茶席</span><span>港邊晚餐</span><span>月光開烤</span><span>城市野餐</span><span>地方辦桌</span><span>冬季鍋物</span><span>廟會相聚</span>
+      <span>市場早餐</span><span>春茶席</span><span>港邊晚餐</span><span>月光開烤</span><span>城市野餐</span><span>地方辦桌</span><span>冬季鍋物</span><span>廟會相聚</span>
+    </div>
+  </div>
 
   <div class="belief">
     <div class="wrap">
@@ -376,7 +409,7 @@
           <img src="uploads/beernight1920-min.jpg" width="1803" height="871" loading="lazy" decoding="async" alt="熱炒桌與城市夜晚概念視覺">
           <div class="gathering-copy">
             <div>
-              <span class="status">Signature Gathering / 籌備中</span>
+              <span class="status">旗艦聚場 / 籌備中</span>
               <h3>新熱炒運動<br>Neo-Rechao</h3>
               <p class="quiet">把熱炒桌上的人情味、音樂與城市夜晚，轉化為台灣相聚文化的旗艦聚場。</p>
             </div>
@@ -387,7 +420,7 @@
           <img src="uploads/moonlight-bbq-hero.png" width="1672" height="941" loading="lazy" decoding="async" alt="月光開烤中秋相聚概念視覺">
           <div class="gathering-copy">
             <div>
-              <span class="status">Season Gathering / 籌備中</span>
+              <span class="status">季節聚場 / 籌備中</span>
               <h3>月光開烤<br>Mid-Autumn BBQ</h3>
               <p class="quiet">把中秋烤肉這個台灣人熟悉的相聚儀式，轉化為一場城市夜晚的文化聚場。</p>
             </div>
@@ -438,12 +471,12 @@
   <section id="join" class="section join">
     <div class="wrap">
       <div class="eyebrow" style="color:rgba(251,246,234,.72)">Join the Gathering</div>
-      <h2 class="section-title">Stay Connected</h2>
-      <p class="lead">想一起打造聚場，或收到第一批企劃消息，可以先留下聯繫方向。Phase 1 先作為合作洽談入口。</p>
-      <form class="email-prototype" aria-label="Stay Connected visual prototype">
-        <input type="email" placeholder="email@example.com" aria-label="Email placeholder" disabled>
-        <button class="btn" type="button" style="background:var(--paper);color:var(--brick)">加入第一批消息</button>
-      </form>
+      <h2 class="section-title">一起相招</h2>
+      <p class="lead">如果你是品牌、店家、場地方、音樂人、攝影師或地方故事採集者，歡迎先和我們聊聊。聚場台灣會從一張桌開始，慢慢長成台灣相聚文化的長期工程。</p>
+      <div class="email-prototype" aria-label="聚場台灣合作聯繫入口">
+        <a class="btn" style="background:var(--paper);color:var(--brick)" href="mailto:contact@wedopr.com?subject=Gather%20Taiwan%20Co-Creation">洽談合作方向</a>
+        <a class="btn btn-ghost" style="color:var(--paper);border-color:rgba(251,246,234,.42)" href="/moonlight-bbq">先看月光開烤</a>
+      </div>
     </div>
   </section>
 

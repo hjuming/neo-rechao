@@ -7,7 +7,12 @@
 <meta name="description" content="新熱炒運動 Neo-Rechao 是聚場台灣 Gather Taiwan 的旗艦聚場方向，把熱炒桌上的人情味、音樂與城市夜晚，轉化為台灣相聚文化。">
 <meta name="keywords" content="新熱炒運動,Neo-Rechao,聚場台灣,Gather Taiwan,Signature Gathering,熱炒文化,台灣相聚文化,城市夜晚,品牌共創">
 <meta name="author" content="WEDO International Marketing Group">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#241d17">
+<meta name="application-name" content="Gather Taiwan">
+<meta name="apple-mobile-web-app-title" content="聚場台灣">
+<meta name="geo.region" content="TW">
+<meta name="geo.placename" content="Taiwan">
 <link rel="canonical" href="https://gather.wedopr.com/neo-rechao">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="聚場台灣 Gather Taiwan">
@@ -15,6 +20,8 @@
 <meta property="og:description" content="把熱炒桌上的人情味、音樂與城市夜晚，轉化為台灣相聚文化的旗艦 Gathering。">
 <meta property="og:url" content="https://gather.wedopr.com/neo-rechao">
 <meta property="og:image" content="https://gather.wedopr.com/uploads/gather-neo-rechao-og-test-v1.png">
+<meta property="og:image:secure_url" content="https://gather.wedopr.com/uploads/gather-neo-rechao-og-test-v1.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="新熱炒運動 Neo-Rechao 桌與城市夜晚的概念視覺">
@@ -33,6 +40,9 @@
     "name": "新熱炒運動 Neo-Rechao",
     "description": "新熱炒運動 Neo-Rechao 是聚場台灣 Gather Taiwan 的旗艦聚場方向，把熱炒桌上的人情味、音樂與城市夜晚，轉化為台灣相聚文化。",
     "url": "https://gather.wedopr.com/neo-rechao",
+    "inLanguage": "zh-Hant-TW",
+    "primaryImageOfPage": "https://gather.wedopr.com/uploads/gather-neo-rechao-og-test-v1.png",
+    "breadcrumb": {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"聚場台灣","item":"https://gather.wedopr.com/"},{"@type":"ListItem","position":2,"name":"新熱炒運動 Neo-Rechao","item":"https://gather.wedopr.com/neo-rechao"}]},
     "image": "https://gather.wedopr.com/uploads/gather-neo-rechao-og-test-v1.png",
     "mainEntity": {
       "@type": "CreativeWork",
@@ -84,6 +94,14 @@
   .nav-links{display:flex;align-items:center;gap:20px}
   .nav-links a{font-size:13px;font-weight:800;color:rgba(251,246,234,.72)}
   .nav-links a:last-child{padding:10px 14px;border:1px solid rgba(251,246,234,.26);color:var(--paper)}
+  .nav-toggle{display:none;width:42px;height:42px;border:0;background:transparent;padding:8px}
+  .nav-toggle span{display:block;height:2px;margin:6px 0;background:var(--paper)}
+  .drawer-note{display:none}
+  .route-ribbon{overflow:hidden;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);background:rgba(251,246,234,.08)}
+  .route-ribbon-track{display:flex;width:max-content;animation:ribbonMove 28s linear infinite}
+  .route-ribbon span{display:inline-flex;align-items:center;padding:13px 28px;font-size:13px;font-weight:900;color:var(--brass);white-space:nowrap}
+  @keyframes ribbonMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion: reduce){.route-ribbon-track{animation:none;flex-wrap:wrap}}
   .eyebrow{font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--ember)}
   .section{padding:88px 0}
   h1,h2,h3,p{margin:0}
@@ -145,11 +163,16 @@
   .mobile-sticky{display:none}
   @media(max-width:900px){
     .wrap{width:min(100% - 36px,640px)}
-    .nav-links{display:none}
+    .nav-toggle{display:block}
+    .nav-links{position:fixed;inset:68px 0 0;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;padding:24px 28px;background:var(--rice);box-shadow:0 24px 80px rgba(27,23,18,.28);opacity:0;visibility:hidden;pointer-events:none;transition:.18s}
+    .nav-links.open{opacity:1;visibility:visible;pointer-events:auto}
+    .nav-links a{padding:18px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--ink)}
+    .nav-links a:last-child{color:var(--ink);border-color:var(--line);background:transparent}
+    .drawer-note{display:block;margin-top:18px;font-size:13px;line-height:1.7;color:var(--muted)}
     .section{padding:64px 0}
     .hero-grid,.split{grid-template-columns:1fr;gap:34px;min-height:auto}
     .hero-grid{padding:46px 0}
-    h1{font-size:clamp(52px,17vw,84px)}
+    h1{font-size:clamp(48px,15vw,76px)}
     h2{font-size:clamp(36px,11vw,52px)}
     .hero-grid>div{width:calc(100vw - 36px);max-width:100%}
     .status{max-width:100%;white-space:normal;line-break:anywhere}
@@ -177,11 +200,15 @@
 <nav class="nav" aria-label="主要導覽">
   <div class="wrap nav-inner">
     <a class="brand" href="/">聚場台灣<span>Gather Taiwan</span></a>
-    <div class="nav-links">
-      <a href="#story">Story</a>
-      <a href="#why">Why</a>
-      <a href="#culture">Culture</a>
-      <a href="#proposal">合作</a>
+    <button class="nav-toggle" type="button" aria-label="開啟選單" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/">回到聚場台灣</a>
+      <a href="#concept">文化主張</a>
+      <a href="#food-culture">美食文化</a>
+      <a href="#live-memory">現場記憶</a>
+      <a href="#partnership">伙伴招募</a>
+      <a href="#boundary">開始之前</a>
+      <p class="drawer-note">每一個聚場子頁都會回到同一條路徑：文化主張、美食文化、現場記憶、伙伴招募，再回到聚場台灣首頁。</p>
     </div>
   </div>
 </nav>
@@ -209,6 +236,13 @@
     </div>
   </section>
 
+  <div class="route-ribbon" aria-label="新熱炒運動聚場路徑">
+    <div class="route-ribbon-track">
+      <span>回到聚場台灣</span><span>熱炒桌</span><span>城市夜晚</span><span>台灣新聲</span><span>美食文化</span><span>伙伴招募</span>
+      <span>回到聚場台灣</span><span>熱炒桌</span><span>城市夜晚</span><span>台灣新聲</span><span>美食文化</span><span>伙伴招募</span>
+    </div>
+  </div>
+
   <div class="strip">
     <div class="wrap">
       <strong>熱炒桌上，<br>有台灣人的社交語言。</strong>
@@ -231,7 +265,7 @@
 
   <section id="why" class="section" style="background:var(--soft)">
     <div class="wrap">
-      <div class="eyebrow">Why Neo-Rechao</div>
+      <div class="eyebrow">為什麼是新熱炒</div>
       <div class="quote">越在地，越能被世界理解。</div>
       <div class="culture-grid">
         <div class="culture"><b>高辨識度</b><p class="quiet">紅椅、圓桌、熱炒招呼聲，是台灣城市夜晚的共同畫面。</p></div>
@@ -242,7 +276,28 @@
     </div>
   </section>
 
+  <section id="food-culture" class="section" style="background:var(--soft)">
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow">美食文化</div>
+        <h2>熱炒是一種
+        坐下來的方式。</h2>
+      </div>
+      <div>
+        <p class="lead">快炒、海產、白飯、湯、圓桌與紅椅，讓朋友、同事、家人自然分食。新熱炒運動想抓住的，是那種一下班就有人說「走啦」的城市默契。</p>
+        <div class="culture-grid" style="margin-top:30px">
+          <div class="culture"><b>鍋氣</b><p class="quiet">快炒聲與熱氣，是城市夜晚最直接的開場。</p></div>
+          <div class="culture"><b>圓桌</b><p class="quiet">每一道菜都要轉過一圈，關係也跟著靠近。</p></div>
+          <div class="culture"><b>海味</b><p class="quiet">台式海產與快炒，讓港邊、夜市、老街都能展開故事。</p></div>
+          <div class="culture"><b>下班後</b><p class="quiet">熱炒最珍貴的，是不用約得太正式，卻能留下很深的記憶。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="culture" class="section dark">
+
+
     <div class="wrap split">
       <div>
         <div class="eyebrow" style="color:var(--brass)">Culture</div>
@@ -271,7 +326,24 @@
     </div>
   </section>
 
+  <section id="live-memory" class="section dark" style="background:var(--charcoal)">
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow" style="color:var(--brass)">現場記憶</div>
+        <h2>讓音樂坐在桌邊，
+        跟朋友一起發生。</h2>
+      </div>
+      <div class="direction-list">
+        <div class="direction"><strong>台灣新聲</strong><p>依照城市、桌型與夜晚氣質，邀請適合的台灣新生代表演者，把一場飯局變成難忘的聚場。</p></div>
+        <div class="direction"><strong>聲音設計</strong><p>鍋鏟、杯盤、招呼聲和音樂可以一起成為現場節奏，讓表演自然靠近餐桌。</p></div>
+        <div class="direction"><strong>內容記憶</strong><p>攝影、短影音與訪談記錄桌邊的人、菜、聲音和離場前的那一刻。</p></div>
+      </div>
+    </div>
+  </section>
+
   <section id="visual" class="section">
+
+
     <div class="wrap">
       <div class="eyebrow">畫面氣氛</div>
       <h2>像一本城市夜晚的<br>紀實攝影集。</h2>
@@ -292,7 +364,7 @@
     </div>
   </section>
 
-  <section id="proposal" class="section">
+  <section id="partnership" class="section">
     <div class="wrap">
       <div class="eyebrow">合作方向</div>
       <h2>共同創造一個<br>旗艦 Gathering。</h2>
@@ -347,11 +419,23 @@
 
 <div class="mobile-sticky" id="mobile-sticky">
   <a href="mailto:contact@wedopr.com?subject=Neo-Rechao%20Gathering">洽談方向</a>
-  <a href="#proposal">合作方向</a>
+  <a href="#partnership">合作方向</a>
 </div>
 
 <script>
+  const toggle = document.querySelector(".nav-toggle");
+  const links = document.querySelector("#nav-links");
   const sticky = document.querySelector("#mobile-sticky");
+  toggle?.addEventListener("click", () => {
+    const open = links.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+  links?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      links.classList.remove("open");
+      toggle?.setAttribute("aria-expanded", "false");
+    });
+  });
   const syncSticky = () => {
     if (!sticky) return;
     sticky.classList.toggle("is-visible", window.innerWidth <= 900 && window.scrollY > 540);

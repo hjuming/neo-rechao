@@ -7,7 +7,12 @@
 <meta name="description" content="月光開烤是聚場台灣 Gather Taiwan 的中秋相聚企劃，把中秋烤肉轉化為一場城市夜晚的文化聚場。">
 <meta name="keywords" content="月光開烤,Gather Taiwan,聚場台灣,中秋烤肉,台灣相聚文化,文化平台">
 <meta name="author" content="WEDO International Marketing Group">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#241d17">
+<meta name="application-name" content="Gather Taiwan">
+<meta name="apple-mobile-web-app-title" content="聚場台灣">
+<meta name="geo.region" content="TW">
+<meta name="geo.placename" content="Taiwan">
 <link rel="canonical" href="https://gather.wedopr.com/moonlight-bbq">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="聚場台灣 Gather Taiwan">
@@ -15,6 +20,8 @@
 <meta property="og:description" content="把中秋烤肉這個台灣人熟悉的相聚儀式，轉化為一場城市夜晚的文化聚場。">
 <meta property="og:url" content="https://gather.wedopr.com/moonlight-bbq">
 <meta property="og:image" content="https://gather.wedopr.com/uploads/moonlight-bbq-og-table-detail-test-v2.png">
+<meta property="og:image:secure_url" content="https://gather.wedopr.com/uploads/moonlight-bbq-og-table-detail-test-v2.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="月光開烤桌面細節概念視覺">
@@ -34,6 +41,9 @@
     "alternateName": "Mid-Autumn BBQ Gathering",
     "description": "月光開烤是聚場台灣 Gather Taiwan 的中秋相聚企劃，把中秋烤肉轉化為一場城市夜晚的文化聚場。",
     "url": "https://gather.wedopr.com/moonlight-bbq",
+    "inLanguage": "zh-Hant-TW",
+    "primaryImageOfPage": "https://gather.wedopr.com/uploads/moonlight-bbq-og-table-detail-test-v2.png",
+    "breadcrumb": {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"聚場台灣","item":"https://gather.wedopr.com/"},{"@type":"ListItem","position":2,"name":"月光開烤","item":"https://gather.wedopr.com/moonlight-bbq"}]},
     "image": "https://gather.wedopr.com/uploads/moonlight-bbq-og-table-detail-test-v2.png",
     "mainEntity": {
       "@type": "CreativeWork",
@@ -84,6 +94,14 @@
   .nav-links{display:flex;align-items:center;gap:20px}
   .nav-links a{font-size:13px;font-weight:800;color:rgba(251,246,234,.72)}
   .nav-links a:last-child{padding:10px 14px;border:1px solid rgba(251,246,234,.26);color:var(--paper)}
+  .nav-toggle{display:none;width:42px;height:42px;border:0;background:transparent;padding:8px}
+  .nav-toggle span{display:block;height:2px;margin:6px 0;background:var(--paper)}
+  .drawer-note{display:none}
+  .route-ribbon{overflow:hidden;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);background:rgba(251,246,234,.08)}
+  .route-ribbon-track{display:flex;width:max-content;animation:ribbonMove 28s linear infinite}
+  .route-ribbon span{display:inline-flex;align-items:center;padding:13px 28px;font-size:13px;font-weight:900;color:var(--moon);white-space:nowrap}
+  @keyframes ribbonMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion: reduce){.route-ribbon-track{animation:none;flex-wrap:wrap}}
   .eyebrow{font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--ember)}
   .section{padding:86px 0}
   h1,h2,h3,p{margin:0}
@@ -144,11 +162,16 @@
   .mobile-sticky{display:none}
   @media(max-width:900px){
     .wrap{width:min(100% - 36px,640px)}
-    .nav-links{display:none}
+    .nav-toggle{display:block}
+    .nav-links{position:fixed;inset:68px 0 0;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;padding:24px 28px;background:var(--rice);box-shadow:0 24px 80px rgba(27,23,18,.28);opacity:0;visibility:hidden;pointer-events:none;transition:.18s}
+    .nav-links.open{opacity:1;visibility:visible;pointer-events:auto}
+    .nav-links a{padding:18px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--ink)}
+    .nav-links a:last-child{color:var(--ink);border-color:var(--line);background:transparent}
+    .drawer-note{display:block;margin-top:18px;font-size:13px;line-height:1.7;color:var(--muted)}
     .section{padding:64px 0}
     .hero-grid,.split{grid-template-columns:1fr;gap:34px;min-height:auto}
     .hero-grid{padding:46px 0}
-    h1{font-size:clamp(52px,17vw,84px)}
+    h1{font-size:clamp(48px,15vw,76px)}
     h2{font-size:clamp(36px,11vw,52px)}
     .hero-grid>div{width:calc(100vw - 36px);max-width:100%}
     .status{max-width:100%;white-space:normal;line-break:anywhere}
@@ -175,11 +198,15 @@
 <nav class="nav" aria-label="主要導覽">
   <div class="wrap nav-inner">
     <a class="brand" href="/">聚場台灣<span>Gather Taiwan</span></a>
-    <div class="nav-links">
-      <a href="#concept">Concept</a>
-      <a href="#snapshot">Direction</a>
-      <a href="#experience">Experience</a>
-      <a href="#partnership">Partner</a>
+    <button class="nav-toggle" type="button" aria-label="開啟選單" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/">回到聚場台灣</a>
+      <a href="#concept">文化主張</a>
+      <a href="#food-culture">美食文化</a>
+      <a href="#live-memory">現場記憶</a>
+      <a href="#partnership">伙伴招募</a>
+      <a href="#boundary">開始之前</a>
+      <p class="drawer-note">每一個聚場子頁都會回到同一條路徑：文化主張、美食文化、現場記憶、伙伴招募，再回到聚場台灣首頁。</p>
     </div>
   </div>
 </nav>
@@ -207,6 +234,13 @@
     </div>
   </section>
 
+  <div class="route-ribbon" aria-label="月光開烤聚場路徑">
+    <div class="route-ribbon-track">
+      <span>回到聚場台灣</span><span>中秋聚場</span><span>柚子月餅</span><span>桌邊暖光</span><span>台灣新聲</span><span>伙伴招募</span>
+      <span>回到聚場台灣</span><span>中秋聚場</span><span>柚子月餅</span><span>桌邊暖光</span><span>台灣新聲</span><span>伙伴招募</span>
+    </div>
+  </div>
+
   <div class="strip">
     <div class="wrap">
       <strong>中秋烤肉，<br>是台灣人的相聚儀式。</strong>
@@ -217,7 +251,7 @@
   <section id="concept" class="section">
     <div class="wrap split">
       <div>
-        <div class="eyebrow">Concept</div>
+        <div class="eyebrow">文化主張</div>
         <h2>為什麼是<br>中秋烤肉？</h2>
       </div>
       <div>
@@ -247,7 +281,28 @@
     </div>
   </section>
 
+  <section id="food-culture" class="section" style="background:#efe4d2">
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow">美食文化</div>
+        <h2>中秋的味道，
+        從分著烤開始。</h2>
+      </div>
+      <div>
+        <p class="lead">月光開烤不只看烤爐，也看大家怎麼分食、等待、遞夾子、留一口給晚到的人。柚子、月餅、茶、烤物與桌邊的暖光，會一起構成這場中秋記憶。</p>
+        <div class="snapshot-grid" style="margin-top:26px">
+          <div class="snapshot"><b>柚子與月餅</b><p>節氣的入口，讓人一看就知道這是中秋。</p></div>
+          <div class="snapshot"><b>一起分著烤</b><p>等待食物熟的時間，正好讓話慢慢開始。</p></div>
+          <div class="snapshot"><b>清爽飲品</b><p>讓夜晚有溫度，也保留適合家庭與朋友的輕鬆感。</p></div>
+          <div class="snapshot"><b>收拾與清潔</b><p>把好吃、好玩、乾淨離場一起納入體驗。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="experience" class="section dark">
+
+
     <div class="wrap split">
       <div>
         <div class="eyebrow" style="color:var(--moon)">Experience</div>
@@ -262,7 +317,24 @@
     </div>
   </section>
 
+  <section id="live-memory" class="section dark" style="background:var(--charcoal)">
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow" style="color:var(--moon)">現場記憶</div>
+        <h2>讓一首歌，
+        留在那個中秋晚上。</h2>
+      </div>
+      <div class="module-list">
+        <div class="module"><strong>台灣新聲</strong><p>依照主題、場地與季節，邀請適合的台灣新生代表演者，讓音樂貼近桌邊，陪著聊天、等待與分享一起發生。</p></div>
+        <div class="module"><strong>桌邊節奏</strong><p>表演可以在開桌、食物上桌、月亮升起或收尾時出現，變成朋友回想那晚的時間標記。</p></div>
+        <div class="module"><strong>影像留下</strong><p>攝影與短影音捕捉手、光、桌面、笑聲與準備離開的一刻，讓聚場留下可分享的記憶。</p></div>
+      </div>
+    </div>
+  </section>
+
   <section id="mood" class="section">
+
+
     <div class="wrap">
       <div class="eyebrow">畫面氣氛</div>
       <h2>像一段中秋記憶，<br>有月光，也有桌邊的人。</h2>
@@ -341,7 +413,19 @@
 </div>
 
 <script>
+  const toggle = document.querySelector(".nav-toggle");
+  const links = document.querySelector("#nav-links");
   const sticky = document.querySelector("#mobile-sticky");
+  toggle?.addEventListener("click", () => {
+    const open = links.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+  links?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      links.classList.remove("open");
+      toggle?.setAttribute("aria-expanded", "false");
+    });
+  });
   const syncSticky = () => {
     if (!sticky) return;
     sticky.classList.toggle("is-visible", window.innerWidth <= 900 && window.scrollY > 540);

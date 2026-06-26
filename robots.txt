@@ -2,4 +2,28 @@ User-agent: *
 Allow: /
 Disallow: /.git/
 
-Sitemap: https://gathering.wedopr.com/sitemap.xml
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Facebot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Slackbot-LinkExpanding
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+Sitemap: https://gather.wedopr.com/sitemap.xml
