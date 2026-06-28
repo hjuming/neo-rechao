@@ -136,8 +136,8 @@
   .tagline{margin:16px 0 0;font-size:25px;line-height:1.42;font-weight:900;color:rgba(251,246,234,.88)}
   .hero-text{margin:24px 0 0;max-width:560px;font-size:17px;line-height:1.9;color:rgba(251,246,234,.74)}
   .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-  .hero-media{position:relative;overflow:hidden;margin:0;min-height:540px;background:#000}
-  .hero-media img{width:100%;height:100%;object-fit:cover;filter:brightness(.86) saturate(.94)}
+  .hero-media{position:relative;overflow:hidden;margin:0;aspect-ratio:1/1;background:#000}
+  .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.86) saturate(.94)}
   .hero-media figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px;background:linear-gradient(to top,rgba(27,23,18,.86),transparent);color:rgba(251,246,234,.82)}
   .belief{padding:28px 0;background:var(--brick);color:var(--paper)}
   .belief .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
@@ -146,43 +146,52 @@
   .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
   .story-copy{display:grid;gap:20px}
   .quote{padding:34px;border-left:4px solid var(--brick);background:var(--paper);font-family:"Noto Serif TC",serif;font-size:clamp(28px,4vw,48px);font-weight:900;line-height:1.2}
+  .surface-card{position:relative;isolation:isolate;overflow:hidden;background:var(--surface-base,var(--paper))}
+  .surface-card::before{content:"";position:absolute;inset:0;z-index:0;background-image:var(--surface-image);background-size:cover;background-position:center;filter:grayscale(.16) saturate(.58) blur(1.4px);opacity:var(--surface-opacity,.16);transform:scale(1.06);mix-blend-mode:var(--surface-blend,multiply);pointer-events:none}
+  .surface-card::after{content:"";position:absolute;inset:0;z-index:0;background:var(--surface-overlay,linear-gradient(135deg,rgba(255,250,240,.95) 0%,rgba(255,250,240,.86) 58%,rgba(232,221,202,.62) 100%));pointer-events:none}
+  .surface-card>*{position:relative;z-index:1}
+  .surface-card.is-dark{--surface-base:rgba(251,246,234,.05);--surface-opacity:.14;--surface-blend:screen;--surface-overlay:linear-gradient(145deg,rgba(38,59,50,.93) 0%,rgba(38,59,50,.84) 54%,rgba(27,23,18,.72) 100%)}
+  .surface-card.is-dark p{color:rgba(251,246,234,.74)}
+  .surface-card.is-season{--surface-opacity:.34;--surface-overlay:linear-gradient(180deg,rgba(27,23,18,.1) 0%,rgba(27,23,18,.34) 44%,rgba(27,23,18,.84) 100%)}
   .node-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px}
-  .node{background:var(--paper);padding:22px;min-height:118px}
+  .node{position:relative;overflow:hidden;background:var(--paper);padding:22px;min-height:146px}
   .node b{display:block;margin-bottom:8px;font-family:"Noto Serif TC",serif;font-size:20px;color:var(--brick)}
+  .node p{color:rgba(27,23,18,.7)}
   .map-intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:54px;align-items:end}
   .season-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:34px}
-  .season-card{position:relative;overflow:hidden;min-height:252px;padding:24px;background:var(--paper);border:1px solid var(--line)}
-  .season-card::before{content:"";position:absolute;inset:auto 18px 18px auto;width:76px;height:76px;border:1px solid rgba(163,58,43,.22);border-radius:50%}
-  .season-card small{display:block;margin-bottom:14px;color:var(--brick);font-size:12px;font-weight:900}
-  .season-card b{display:block;max-width:240px;font-family:"Noto Serif TC",serif;font-size:28px;line-height:1.18}
-  .season-card p{position:relative;margin:18px 0 0}
+  .season-card{display:flex;flex-direction:column;justify-content:flex-end;min-height:286px;padding:24px;border:1px solid rgba(27,23,18,.18)}
+  .season-card small{display:block;margin-bottom:14px;color:#f0c46f;font-size:12px;font-weight:900;text-shadow:0 2px 16px rgba(27,23,18,.55)}
+  .season-card b{display:block;max-width:260px;font-family:"Noto Serif TC",serif;font-size:28px;line-height:1.18;color:var(--paper);text-shadow:0 2px 18px rgba(27,23,18,.62)}
+  .season-card p{margin:18px 0 0;color:rgba(255,250,240,.9)}
   .fit-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin-top:34px;background:var(--line);border:1px solid var(--line)}
-  .fit-card{background:var(--paper);padding:24px;min-height:180px}
+  .fit-card{padding:24px;min-height:180px}
   .fit-card span{display:block;margin-bottom:12px;color:var(--brass);font-size:12px;font-weight:900}
   .fit-card b{display:block;margin-bottom:10px;font-family:"Noto Serif TC",serif;font-size:22px}
   .place-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;margin-top:34px;background:var(--line-dark);border:1px solid var(--line-dark)}
-  .place-card{background:rgba(251,246,234,.05);padding:24px;min-height:188px}
+  .place-card{padding:24px;min-height:188px}
   .place-card b{display:block;margin-bottom:12px;color:var(--brass);font-family:"Noto Serif TC",serif;font-size:22px}
   .dark{background:var(--green);color:var(--paper)}
   .dark .section-title,.dark .lead{color:var(--paper)}
   .dark .quiet{color:rgba(251,246,234,.7)}
   .how-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:36px;background:var(--line-dark);border:1px solid var(--line-dark)}
-  .how-card{background:rgba(251,246,234,.05);padding:30px;min-height:238px}
+  .how-card{position:relative;overflow:hidden;background:rgba(251,246,234,.05);padding:30px;min-height:238px}
   .how-card span{display:block;margin-bottom:18px;color:var(--brass);font-size:12px;font-weight:900}
-  .how-card b{display:block;margin-bottom:14px;font-family:"Noto Serif TC",serif;font-size:28px}
+  .how-card b{display:block;margin-bottom:14px;font-family:"Noto Serif TC",serif;font-size:28px;color:var(--paper)}
+  .how-card p{color:rgba(251,246,234,.74)}
   .gathering-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:36px}
-  .gathering-card{display:grid;grid-template-columns:.95fr 1.05fr;min-height:360px;background:var(--paper);border:1px solid var(--line);overflow:hidden}
-  .gathering-card img{width:100%;height:100%;object-fit:cover}
+  .gathering-card{display:grid;grid-template-columns:.95fr 1.05fr;background:var(--paper);border:1px solid var(--line);overflow:hidden}
+  .gathering-card img{align-self:start;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
   .gathering-copy{padding:30px;display:flex;flex-direction:column;justify-content:space-between;gap:28px}
   .status{display:inline-flex;width:max-content;margin-bottom:14px;padding:7px 10px;border:1px solid var(--line);font-size:11px;font-weight:900;color:var(--brick)}
   .gathering-copy h3{margin:0;font-family:"Noto Serif TC",serif;font-size:32px;line-height:1.15}
   .story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:36px}
   .story-card{background:var(--paper);border:1px solid var(--line);overflow:hidden}
-  .story-card img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(.94)}
+  .photo-frame{display:block;aspect-ratio:1/1;overflow:hidden;background:#120f0c}
+  .photo-frame img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.94);cursor:zoom-in}
   .story-card div{padding:22px}
   .story-card b{display:block;margin-bottom:8px;font-family:"Noto Serif TC",serif;font-size:22px}
   .partner-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin-top:34px;background:var(--line-dark);border:1px solid var(--line-dark)}
-  .partner{background:rgba(251,246,234,.05);padding:24px;min-height:150px}
+  .partner{padding:24px;min-height:150px}
   .partner b{display:block;margin-bottom:10px;color:var(--brass);font-family:"Noto Serif TC",serif;font-size:19px}
   .join{background:var(--brick);color:var(--paper);text-align:center}
   .join .section-title{color:var(--paper)}
@@ -197,6 +206,14 @@
   .footer-inner{display:flex;justify-content:space-between;gap:24px;font-size:13px;line-height:1.7}
   .footer-inner a{color:var(--brass);font-weight:900}
   .mobile-sticky{display:none}
+  .lightbox{position:fixed;inset:0;z-index:120;display:grid;grid-template-columns:auto minmax(0,920px) auto;align-items:center;gap:18px;padding:28px;background:rgba(27,23,18,.92);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,visibility .18s ease}
+  .lightbox.is-open{opacity:1;visibility:visible;pointer-events:auto}
+  .lightbox figure{margin:0}
+  .lightbox img{width:100%;max-height:min(82vh,920px);aspect-ratio:1/1;object-fit:contain;background:#120f0c}
+  .lightbox button{border:1px solid rgba(251,246,234,.28);background:rgba(251,246,234,.1);color:var(--paper);font:900 22px/1 "Noto Sans TC",sans-serif;cursor:pointer}
+  .lightbox-close{position:absolute;top:18px;right:18px;width:44px;height:44px}
+  .lightbox-prev,.lightbox-next{width:48px;height:64px}
+  .lightbox-caption{grid-column:2;margin:12px 0 0;color:rgba(251,246,234,.76);font-size:14px;line-height:1.7;text-align:center}
   @media(max-width:900px){body.nav-open::before{content:"";position:fixed;inset:68px 0 0;z-index:70;background:rgba(27,23,18,.38);backdrop-filter:blur(2px)}
     .wrap{width:min(100% - 36px,640px)}
     .section{padding:66px 0}
@@ -213,12 +230,12 @@
     .hero-copy{max-width:calc(100vw - 36px)}
     .hero-kicker{max-width:100%;white-space:normal;line-break:anywhere}
     .hero-text{width:100%;max-width:100%;overflow-wrap:break-word;word-break:normal;line-break:strict}
-    .hero-media{min-height:320px}
+    .hero-media{aspect-ratio:16/9;min-height:0}
     .belief .wrap{display:block}
     .belief strong{display:block;margin-bottom:10px;font-size:23px}
     .node-grid,.how-grid,.partner-grid,.story-grid,.gathering-grid,.season-grid,.fit-grid,.place-row,.map-intro{grid-template-columns:1fr}
     .gathering-card{grid-template-columns:1fr}
-    .gathering-card img{height:240px}
+    .gathering-card img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
     .join-actions{display:grid;grid-template-columns:1fr}
     .footer-inner{display:block}
     .footer-inner div+div{margin-top:16px}
@@ -227,6 +244,10 @@
     .mobile-sticky a{display:flex;align-items:center;justify-content:center;min-height:44px;font-size:13px;font-weight:900}
     .mobile-sticky a:first-child{background:var(--brick);color:var(--paper)}
     .mobile-sticky a:last-child{border:1px solid var(--line-dark);color:var(--paper)}
+    .lightbox{grid-template-columns:42px minmax(0,1fr) 42px;gap:8px;padding:18px}
+    .lightbox img{max-height:72vh}
+    .lightbox-prev,.lightbox-next{width:42px;height:56px}
+    .lightbox-caption{grid-column:1 / -1}
     body{padding-bottom:82px}
   }
 </style>
@@ -241,7 +262,7 @@
       <a href="#map">全年概覽</a>
       <a href="/gatherings/">聚場地圖</a>
       <a href="#food-fit">美食文化</a>
-      <a href="#partnership">伙伴招募</a>
+      <a href="#partnership">夥伴招募</a>
       <a href="/contact/">聯絡我們</a>
       <p class="drawer-note">從一張桌開始，走進台灣人熟悉的味道、城市與相聚故事。</p>
     </div>
@@ -255,7 +276,7 @@
         <div class="hero-kicker">台灣相聚文化平台</div>
         <h1>聚場台灣<br><span style="font-size:.58em">Gather Taiwan</span></h1>
         <p class="tagline">相招，聚一場。</p>
-        <p class="hero-text">從早餐店、夜市、港邊、老街、河濱到辦桌，台灣人的人情味本來就在生活裡。Gather Taiwan 從一張桌開始，讓日常的相招成為能一起參與、一起記住的文化體驗。</p>
+        <p class="hero-text">有些台灣記憶，是從一張桌開始的。早餐店的鐵板聲、港邊的海風、中秋的炭香、熱炒桌的碰杯聲，都讓人有理由坐下來，和熟悉或剛認識的人一起留下故事。</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="/gatherings/">探索聚場地圖</a>
           <a class="btn btn-ghost" style="color:var(--paper);border-color:var(--line-dark);background:transparent" href="#what">了解 Gather Taiwan</a>
@@ -305,38 +326,38 @@
           <div class="eyebrow">一年十二個月</div>
           <h2 class="section-title">一年十二個月，<br>台灣都有相聚的理由。</h2>
         </div>
-        <p class="lead">春天走春，夏夜吃冰，中秋開烤，冬天圍爐。先從幾個最有記憶點的聚場開始；完整的主題、城市和季節線索，會在聚場地圖慢慢展開。</p>
+        <p class="lead">春天吃早餐、夏夜靠海風、中秋一起烤、冬天圍著一鍋湯。每一個季節，都有一種讓人願意出門、坐下、說話的味道。</p>
       </div>
       <div class="season-grid" aria-label="聚場台灣全年相聚場景">
-        <article class="season-card">
+        <article class="season-card surface-card is-season" style="--surface-image:url('uploads/gather-story-market-morning-v1.jpg')" data-prism-v2="spring-market-tea">
           <small>Spring / 春</small>
           <b>市場早餐、春茶席、潤餅桌</b>
           <p class="quiet">從清晨市場到老屋茶席，春天的聚場先從一份熱早餐和一杯茶開始。</p>
         </article>
-        <article class="season-card">
+        <article class="season-card surface-card is-season" style="--surface-image:url('uploads/gather-story-harbor-dinner-v1.jpg')" data-prism-v2="early-summer-zongzi-harbor">
           <small>Early Summer / 初夏</small>
           <b>端午粽子、芒果冰、港邊海鮮</b>
           <p class="quiet">節令食物、夜市燈光與海風，讓城市在入夏時有了新的餐桌路線。</p>
         </article>
-        <article class="season-card">
+        <article class="season-card surface-card is-season" style="--surface-image:url('uploads/gather-moonlight-charcoal-v1.jpg')" data-prism-v2="moon-season-bbq-moon-table">
           <small>Moon Season / 中秋</small>
           <b>月光開烤、柚子月餅、河濱晚風</b>
           <p class="quiet">讓熟悉的中秋烤肉，成為城市夜晚裡可以一起參與的聚場。</p>
         </article>
-        <article class="season-card">
+        <article class="season-card surface-card is-season" style="--surface-image:url('uploads/gather-neo-rechao-cheers-v1.jpg')" data-prism-v2="city-night-rechao-night-market">
           <small>City Night / 城市夜晚</small>
           <b>父親節熱炒、夜市小吃、老街糕餅</b>
           <p class="quiet">熱炒桌、廟口、商圈與老街，是台灣城市最自然的社交語言。</p>
         </article>
-        <article class="season-card">
+        <article class="season-card surface-card is-season" style="--surface-image:url('uploads/gather-winter-table-v1.jpg')" data-prism-v2="winter-hot-pot-sweet-soup">
           <small>Winter / 冬</small>
           <b>羊肉爐、薑母鴨、冬至湯圓</b>
           <p class="quiet">冬天的聚場有蒸氣、熱湯、甜湯與一群人把時間慢下來的聲音。</p>
         </article>
-        <article class="season-card">
+        <article class="season-card surface-card is-season" style="--surface-image:url('uploads/gather-story-local-banquet-v1.jpg')" data-prism-v2="city-pilots-city-food-cluster">
           <small>City Pilots / 城市聚場</small>
           <b>台南早餐、基隆港邊、鹿港茶點</b>
-          <p class="quiet">每一座城市都有自己的 Taiwan Flavor；Gather Taiwan 要做的是找到它、留下它、放大它。</p>
+          <p class="quiet">每一座城市都有自己的味道。Gather Taiwan 想把它從日常裡找回來，好好留下。</p>
         </article>
       </div>
       <div style="margin-top:28px"><a class="btn btn-primary" href="/gatherings/">打開聚場地圖</a></div>
@@ -348,14 +369,14 @@
       <div class="eyebrow">Why Gathering Matters</div>
       <div class="quote">每一場相聚，<br>都是一場台灣文化。</div>
       <div class="node-grid" aria-label="台灣相聚文化節點">
-        <div class="node"><b>辦桌</b><p class="quiet">人情、款待與地方網絡。</p></div>
-        <div class="node"><b>熱炒</b><p class="quiet">圓桌、紅椅與下班後的共同語言。</p></div>
-        <div class="node"><b>夜市</b><p class="quiet">街頭小吃、燈光與流動路線。</p></div>
-        <div class="node"><b>中秋烤肉</b><p class="quiet">月光、炭香與一年一度的相招。</p></div>
-        <div class="node"><b>地方節慶</b><p class="quiet">信仰、街區與公共生活。</p></div>
-        <div class="node"><b>市場</b><p class="quiet">日常採買、熟人關係與味道。</p></div>
-        <div class="node"><b>城市夜晚</b><p class="quiet">水岸、巷弄、商圈與音樂。</p></div>
-        <div class="node"><b>故事</b><p class="quiet">被記得、被分享、被傳下去。</p></div>
+        <div class="node surface-card" style="--surface-image:url('uploads/gather-story-local-banquet-v1.jpg')" data-prism-v2="banquet-red-table-serving-hands"><b>辦桌</b><p class="quiet">人情、款待與地方網絡。</p></div>
+        <div class="node surface-card" style="--surface-image:url('uploads/gather-neo-rechao-cheers-v1.jpg')" data-prism-v2="rechao-red-stools-metal-plates"><b>熱炒</b><p class="quiet">圓桌、紅椅與下班後的共同語言。</p></div>
+        <div class="node surface-card" style="--surface-image:url('uploads/gather-story-harbor-dinner-v1.jpg')" data-prism-v2="night-market-stall-lights-rain-ground"><b>夜市</b><p class="quiet">街頭小吃、燈光與流動路線。</p></div>
+        <div class="node surface-card" style="--surface-image:url('uploads/gather-moonlight-charcoal-v1.jpg')" data-prism-v2="mid-autumn-pomelo-mooncake-grill-light"><b>中秋烤肉</b><p class="quiet">月光、炭香與一年一度的相招。</p></div>
+        <div class="node surface-card" style="--surface-image:url('uploads/gather-moon-viewing-v1.jpg')" data-prism-v2="temple-square-supply-table-volunteer-hands"><b>地方節慶</b><p class="quiet">信仰、街區與公共生活。</p></div>
+        <div class="node surface-card" style="--surface-image:url('uploads/gather-story-market-morning-v1.jpg')" data-prism-v2="market-griddle-basket-cooked-food-table"><b>市場</b><p class="quiet">日常採買、熟人關係與味道。</p></div>
+        <div class="node surface-card" style="--surface-image:url('uploads/gather-story-harbor-dinner-v1.jpg')" data-prism-v2="city-night-waterfront-harbor-lights"><b>城市夜晚</b><p class="quiet">水岸、巷弄、商圈與音樂。</p></div>
+        <div class="node surface-card" style="--surface-image:url('uploads/gather-contact-co-creator-og-v1.jpg')" data-prism-v2="story-film-notes-table-photos"><b>故事</b><p class="quiet">被記得、被分享、被傳下去。</p></div>
       </div>
     </div>
   </section>
@@ -365,9 +386,9 @@
       <div class="eyebrow" style="color:var(--brass)">我們怎麼聚</div>
       <h2 class="section-title">一場 Gathering，<br>從人、地方與文化開始。</h2>
       <div class="how-grid">
-        <div class="how-card"><span>01</span><b>People</b><p class="quiet">人如何被邀請、被看見、被連結。主角坐在桌邊，也在回家的路上。</p></div>
-        <div class="how-card"><span>02</span><b>Place</b><p class="quiet">地方如何成為相聚的場。街區、水岸、店家、巷弄與市場，都能成為記憶的容器。</p></div>
-        <div class="how-card"><span>03</span><b>Culture</b><p class="quiet">記憶、食物、音樂與故事如何被留下，成為更多人願意參與與分享的文化體驗。</p></div>
+        <div class="how-card surface-card is-dark" style="--surface-image:url('uploads/gather-story-local-banquet-v1.jpg')" data-prism-v2="people-table-hands-shoulders"><span>01</span><b>People</b><p class="quiet">人如何被邀請、被看見、被連結。主角坐在桌邊，也在回家的路上。</p></div>
+        <div class="how-card surface-card is-dark" style="--surface-image:url('uploads/gather-story-harbor-dinner-v1.jpg')" data-prism-v2="place-neighborhood-waterfront-market"><span>02</span><b>Place</b><p class="quiet">地方如何成為相聚的場。街區、水岸、店家、巷弄與市場，都能成為記憶的容器。</p></div>
+        <div class="how-card surface-card is-dark" style="--surface-image:url('uploads/gather-contact-co-creator-og-v1.jpg')" data-prism-v2="culture-table-objects-notes-memory"><span>03</span><b>Culture</b><p class="quiet">食物、聲音與故事會留在桌邊，也會留在回家的路上。</p></div>
       </div>
     </div>
   </section>
@@ -379,12 +400,12 @@
         <h2 class="section-title">最適合聚場的食物，<br>不一定最高級。</h2>
       </div>
       <div>
-        <p class="lead">它要讓人自然坐下、分食、聊天、停留，最後留下某種氣味與記憶。</p>
+        <p class="lead">它要能分著吃、等一下、聊幾句，也要讓人回家後還記得那個味道。</p>
         <div class="fit-grid" aria-label="Gather Taiwan 食物選擇原則">
-          <div class="fit-card"><span>01</span><b>多人共享</b><p class="quiet">一鍋、一桌、一盤，讓人有理由伸手、等待、互相招呼。</p></div>
-          <div class="fit-card"><span>02</span><b>地方性</b><p class="quiet">食物最好能說出一個城市、一條街、一個市場的生活脈絡。</p></div>
-          <div class="fit-card"><span>03</span><b>停留時間</b><p class="quiet">一餐能坐久一點，話就會慢慢出來。</p></div>
-          <div class="fit-card"><span>04</span><b>故事與氣味</b><p class="quiet">炭香、鍋氣、蒸氣、甜湯，都是台灣人記得一場相聚的方式。</p></div>
+          <div class="fit-card surface-card" style="--surface-image:url('uploads/gather-story-local-banquet-v1.jpg')" data-prism-v2="food-shared-table-many-hands"><span>01</span><b>多人共享</b><p class="quiet">一鍋、一桌、一盤，讓人有理由伸手、等待、互相招呼。</p></div>
+          <div class="fit-card surface-card" style="--surface-image:url('uploads/gather-story-market-morning-v1.jpg')" data-prism-v2="food-local-market-street-context"><span>02</span><b>地方性</b><p class="quiet">食物最好能說出一個城市、一條街、一個市場的生活脈絡。</p></div>
+          <div class="fit-card surface-card" style="--surface-image:url('uploads/gather-story-harbor-dinner-v1.jpg')" data-prism-v2="food-slow-stay-dinner-table"><span>03</span><b>停留時間</b><p class="quiet">一餐能坐久一點，話就會慢慢出來。</p></div>
+          <div class="fit-card surface-card" style="--surface-image:url('uploads/gather-moonlight-charcoal-v1.jpg')" data-prism-v2="food-aroma-charcoal-steam-sweet-soup"><span>04</span><b>故事與氣味</b><p class="quiet">炭香、鍋氣、蒸氣、甜湯，都是台灣人記得一場相聚的方式。</p></div>
         </div>
       </div>
     </div>
@@ -396,11 +417,11 @@
       <h2 class="section-title">聚場可以從一張桌，<br>也可以從一座城市開始。</h2>
       <p class="lead">我們從真實地方出發：市場、港邊、河濱、老街與文化園區，都可能成為下一場相聚的起點。</p>
       <div class="place-row" aria-label="Gather Taiwan 場域語言">
-        <div class="place-card"><b>市場</b><p class="quiet">城市醒來的地方。早餐、熟食、採買與攤商的招呼聲。</p></div>
-        <div class="place-card"><b>港邊</b><p class="quiet">海風與魚市的晚餐。冰塊、魚籃、港燈與海鮮桌。</p></div>
-        <div class="place-card"><b>河濱</b><p class="quiet">月光與朋友的長桌。適合季節相聚與城市夜晚。</p></div>
-        <div class="place-card"><b>老街</b><p class="quiet">店家、居民、糕餅與回家的路，會把記憶留住。</p></div>
-        <div class="place-card"><b>文化園區</b><p class="quiet">讓故事、音樂、影像與品牌合作有自然發生的空間。</p></div>
+        <div class="place-card surface-card is-dark" style="--surface-image:url('uploads/gather-story-market-morning-v1.jpg')" data-prism-v2="place-market-breakfast-stalls"><b>市場</b><p class="quiet">城市醒來的地方。早餐、熟食、採買與攤商的招呼聲。</p></div>
+        <div class="place-card surface-card is-dark" style="--surface-image:url('uploads/gather-story-harbor-dinner-v1.jpg')" data-prism-v2="place-harbor-fish-market-dinner"><b>港邊</b><p class="quiet">海風與魚市的晚餐。冰塊、魚籃、港燈與海鮮桌。</p></div>
+        <div class="place-card surface-card is-dark" style="--surface-image:url('uploads/gather-moon-viewing-v1.jpg')" data-prism-v2="place-riverside-moon-long-table"><b>河濱</b><p class="quiet">月光與朋友的長桌。適合季節相聚與城市夜晚。</p></div>
+        <div class="place-card surface-card is-dark" style="--surface-image:url('uploads/gather-story-market-morning-v1.jpg')" data-prism-v2="place-old-street-shops-way-home"><b>老街</b><p class="quiet">店家、居民、糕餅與回家的路，會把記憶留住。</p></div>
+        <div class="place-card surface-card is-dark" style="--surface-image:url('uploads/gather-contact-co-creator-og-v1.jpg')" data-prism-v2="place-cultural-park-story-music-image"><b>文化園區</b><p class="quiet">讓故事、音樂、影像與品牌合作有自然發生的空間。</p></div>
       </div>
     </div>
   </section>
@@ -412,12 +433,12 @@
       <p class="lead">先走進兩個最清楚的聚場：月光開烤與新熱炒運動。更多城市與節氣故事，會陸續在這裡出現。</p>
       <div class="gathering-grid">
         <article class="gathering-card">
-          <img src="uploads/gather-neo-rechao-cheers-v1.jpg" width="1448" height="1086" loading="lazy" decoding="async" alt="熱炒桌邊朋友碰杯的第一視角氣氛影像">
+          <img src="uploads/gather-neo-rechao-cheers-v1.jpg" width="1448" height="1086" loading="lazy" decoding="async" alt="熱炒桌邊朋友碰杯與城市夜晚的氣氛影像">
           <div class="gathering-copy">
             <div>
-              <span class="status">旗艦聚場 / 合作邀請中</span>
+              <span class="status">城市夜晚</span>
               <h3>新熱炒運動<br>Neo-Rechao</h3>
-              <p class="quiet">熱炒桌上的人情味、音樂與城市夜晚，正在成為 Gather Taiwan 的旗艦聚場方向。</p>
+              <p class="quiet">鍋氣、杯盤聲和下班後的朋友，讓熱炒成為台灣城市夜晚最自然的相聚方式。</p>
             </div>
             <a class="btn btn-primary" href="/neo-rechao/">走進新熱炒</a>
           </div>
@@ -426,7 +447,7 @@
           <img src="uploads/gather-moonlight-charcoal-v1.jpg" width="1448" height="1086" loading="lazy" decoding="async" alt="中秋烤肉炭火與桌邊手勢的第一視角氣氛影像">
           <div class="gathering-copy">
             <div>
-              <span class="status">季節聚場 / 合作邀請中</span>
+              <span class="status">中秋夜晚</span>
               <h3>月光開烤<br>Mid-Autumn BBQ</h3>
               <p class="quiet">讓台灣人熟悉的中秋烤肉，成為城市夜晚裡能一起坐下、分享與記住的聚場。</p>
             </div>
@@ -444,15 +465,15 @@
       <p class="lead">每一場相聚，都會留下自己的聲音、味道與表情。這些故事，會讓更多人記得台灣人相聚的樣子。</p>
       <div class="story-grid">
         <article class="story-card">
-          <img src="uploads/gather-market-morning-documentary-v1.jpg" width="1448" height="1086" loading="lazy" decoding="async" alt="早餐店鐵板與桌邊早餐的旅人實拍感氣氛影像">
+          <span class="photo-frame"><img src="uploads/gather-story-market-morning-v1.jpg" width="1448" height="1086" loading="lazy" decoding="async" alt="早餐店鐵板、蛋餅與冰奶茶的旅人實拍感氣氛影像"></span>
           <div><b>島嶼早餐</b><p class="quiet">市場、早餐店、飯糰、蛋餅與一座城市醒來的聲音。氣氛影像</p></div>
         </article>
         <article class="story-card">
-          <img src="uploads/gather-winter-table-v1.jpg" width="1448" height="1086" loading="lazy" decoding="async" alt="冬季鍋物熱氣與桌邊手勢的自然紀實氣氛影像">
+          <span class="photo-frame"><img src="uploads/gather-winter-table-v1.jpg" width="1448" height="1086" loading="lazy" decoding="async" alt="冬季鍋物熱氣與桌邊手勢的自然紀實氣氛影像"></span>
           <div><b>冬天的鍋</b><p class="quiet">羊肉爐、薑母鴨、火鍋與湯圓，讓人把一年收束在同一張桌邊。</p></div>
         </article>
         <article class="story-card">
-          <img src="uploads/gather-harbor-dinner-documentary-v1.jpg" width="1448" height="1086" loading="lazy" decoding="async" alt="港邊晚餐濕地反光與桌邊片刻的氣氛影像">
+          <span class="photo-frame"><img src="uploads/gather-story-harbor-dinner-v1.jpg" width="1448" height="1086" loading="lazy" decoding="async" alt="港邊晚餐、濕地反光與藍色魚籃的氣氛影像"></span>
           <div><b>港邊晚餐</b><p class="quiet">基隆、旗津、安平或台東海線，都有自己的海風與餐桌故事。</p></div>
         </article>
       </div>
@@ -465,12 +486,12 @@
       <h2 class="section-title">一起把下一場<br>相聚做出來。</h2>
       <p class="lead">Gather Taiwan 希望與地方品牌、創作者、音樂人、店家、場地方、文化組織、媒體與社群，一起完成會被記住、也會被分享的文化體驗。</p>
       <div class="partner-grid">
-        <div class="partner"><b>店家與場地方</b><p class="quiet">提供真實地方、真實桌面與真實生活脈絡。</p></div>
-        <div class="partner"><b>食材與循環夥伴</b><p class="quiet">讓一場聚會從好吃、乾淨、可執行開始。</p></div>
-        <div class="partner"><b>音樂人與攝影師</b><p class="quiet">捕捉聲音、光線與最有感情的一瞬間。</p></div>
-        <div class="partner"><b>故事採集者</b><p class="quiet">把地方人物、記憶與餐桌故事留下來。</p></div>
+        <div class="partner surface-card is-dark" style="--surface-image:url('uploads/gather-story-local-banquet-v1.jpg')" data-prism-v2="partner-venues-real-table-local-context"><b>店家與場地方</b><p class="quiet">提供真實地方、真實桌面與真實生活脈絡。</p></div>
+        <div class="partner surface-card is-dark" style="--surface-image:url('uploads/gather-winter-table-v1.jpg')" data-prism-v2="partner-ingredients-clean-circular-flow"><b>食材與循環夥伴</b><p class="quiet">讓一場聚會從好吃、乾淨、可執行開始。</p></div>
+        <div class="partner surface-card is-dark" style="--surface-image:url('uploads/gather-harbor-dinner-documentary-v1.jpg')" data-prism-v2="partner-musicians-photographers-light-sound"><b>音樂人與攝影師</b><p class="quiet">捕捉聲音、光線與最有感情的一瞬間。</p></div>
+        <div class="partner surface-card is-dark" style="--surface-image:url('uploads/gather-contact-co-creator-og-v1.jpg')" data-prism-v2="partner-story-collectors-notes-table-memory"><b>故事採集者</b><p class="quiet">把地方人物、記憶與餐桌故事留下來。</p></div>
       </div>
-      <p class="quiet" style="margin-top:22px">合作會先從文化角色、內容共創與品牌參與方式談起。</p>
+      <p class="quiet" style="margin-top:22px">如果你也有一張桌、一段聲音或一個地方故事，我們可以先從那裡聊起。</p>
     </div>
   </section>
 
@@ -481,7 +502,7 @@
       <p class="lead">如果你是品牌、店家、場地方、音樂人、攝影師或地方故事採集者，歡迎先和我們聊聊。聚場台灣從一張桌開始，和你一起留下台灣人相聚的味道、聲音與故事。</p>
       <div class="join-actions" aria-label="聚場台灣合作聯繫">
         <a class="btn" style="background:var(--paper);color:var(--brick)" href="/contact/">洽談合作</a>
-        <a class="btn btn-ghost" style="color:var(--paper);border-color:rgba(251,246,234,.42)" href="/moonlight-bbq/">先看月光開烤</a>
+        <a class="btn btn-ghost" style="background:var(--charcoal);color:var(--paper);border-color:var(--charcoal)" href="/moonlight-bbq/">先看月光開烤</a>
       </div>
     </div>
   </section>
@@ -493,8 +514,8 @@
         <h2 class="section-title">先把每一步<br>做紮實。</h2>
       </div>
       <div class="faq-list">
-        <div class="faq-item"><b>籌備進度</b><p class="quiet">合作與現場細節確認後，會再正式公布。</p></div>
-        <div class="faq-item"><b>圖片使用</b><p class="quiet">頁面圖片作為氣氛示意，用來描繪 Gather Taiwan 想靠近的相聚感。</p></div>
+        <div class="faq-item"><b>怎麼開始</b><p class="quiet">聚場台灣正在整理合作對話與聚場內容；下一次公開邀請、參與方式與現場資訊，會在準備好後分享。</p></div>
+        <div class="faq-item"><b>圖片說明</b><p class="quiet">頁面圖片用來傳達相聚氛圍，實際內容以後續公開資訊為準。</p></div>
       </div>
     </div>
   </section>
@@ -508,8 +529,8 @@
     </div>
     <div>
       <a href="/gatherings/">聚場地圖</a> · <a href="/neo-rechao/">新熱炒運動</a> · <a href="/moonlight-bbq/">月光開烤</a><br>
-      合作與現場細節確認後，會再正式公布。<br>
-      頁面圖片為氣氛示意，用來描繪我們想靠近的相聚感。<br>
+      下一次公開邀請、參與方式與現場資訊，會在準備好後分享。<br>
+      頁面圖片用來傳達相聚氛圍，實際內容以後續公開資訊為準。<br>
       © 2026 Gather Taiwan. <a href="https://www.wedopr.com/">WEDO International Marketing Group.</a>
     </div>
   </div>
@@ -553,6 +574,64 @@
   syncSticky();
   window.addEventListener("scroll", syncSticky, { passive: true });
   window.addEventListener("resize", syncSticky);
+  (() => {
+    const galleryImages = Array.from(document.querySelectorAll(".story-card img"));
+    if (!galleryImages.length) return;
+    const lightbox = document.createElement("div");
+    lightbox.className = "lightbox";
+    lightbox.setAttribute("role", "dialog");
+    lightbox.setAttribute("aria-modal", "true");
+    lightbox.setAttribute("aria-label", "圖片瀏覽");
+    lightbox.innerHTML = '<button class="lightbox-close" type="button" aria-label="關閉圖片">×</button><button class="lightbox-prev" type="button" aria-label="上一張">‹</button><figure><img alt=""><figcaption class="lightbox-caption"></figcaption></figure><button class="lightbox-next" type="button" aria-label="下一張">›</button>';
+    document.body.appendChild(lightbox);
+    const image = lightbox.querySelector("img");
+    const caption = lightbox.querySelector(".lightbox-caption");
+    let current = 0;
+    let startX = 0;
+    const show = (index) => {
+      current = (index + galleryImages.length) % galleryImages.length;
+      const source = galleryImages[current];
+      image.src = source.currentSrc || source.src;
+      image.alt = source.alt || "";
+      caption.textContent = source.closest(".story-card")?.querySelector("b")?.textContent || source.alt || "";
+    };
+    const openLightbox = (index) => {
+      show(index);
+      lightbox.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+    };
+    const closeLightbox = () => {
+      lightbox.classList.remove("is-open");
+      document.body.style.overflow = "";
+    };
+    galleryImages.forEach((img, index) => {
+      img.tabIndex = 0;
+      img.addEventListener("click", () => openLightbox(index));
+      img.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openLightbox(index);
+        }
+      });
+    });
+    lightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
+    lightbox.querySelector(".lightbox-prev").addEventListener("click", () => show(current - 1));
+    lightbox.querySelector(".lightbox-next").addEventListener("click", () => show(current + 1));
+    lightbox.addEventListener("pointerdown", (event) => {
+      startX = event.clientX;
+      if (event.target === lightbox) closeLightbox();
+    });
+    lightbox.addEventListener("pointerup", (event) => {
+      const delta = event.clientX - startX;
+      if (Math.abs(delta) > 48) show(current + (delta < 0 ? 1 : -1));
+    });
+    document.addEventListener("keydown", (event) => {
+      if (!lightbox.classList.contains("is-open")) return;
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowRight") show(current + 1);
+      if (event.key === "ArrowLeft") show(current - 1);
+    });
+  })();
 </script>
 </body>
 </html>
